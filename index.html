@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="img/icon_transp.png"/>
+    <title>Bsale Store</title>
+</head>
+<body>
+    <!-- loading page -->
+    <div class="loading-page" id="loading-page">
+        <div>
+            <img class="logo-image" src="img/logo_transp.png" alt="">
+        </div>
+        <div>
+            <img class="loading-image" src="img/preloader.gif" alt="">
+        </div>
+        <div class="loading-text">
+            LOADING STORE
+        </div>
+    </div>
+
+    <!-- main container -->
+    <div class="main-container">
+        <!-- top bar -->
+        <div class="top-bar">
+            <span title="Menu" onclick="showLeftMenu();">&#9776;</span>
+            <div id="left-menu" class="left-menu">
+                <div class="div-menu" id="div-menu">
+                    <a href="index.html">Store</a>
+                    <a href="doc.html">Documentation</a>
+                </div>
+            </div>
+            <h2>BSALE STORE</h2>
+            <span title="Shopping Cart" id="shopping-cart-icon" onclick="showShoppingCart();">&#128722;</span>
+        </div>
+
+        <!-- container -->
+        <div class="container">
+            <!-- search bar -->
+            <div class="search-bar">
+                <div class="categories">
+                    <select name="categories" id="categories" onchange="selectByCategory();">
+                        <option value="" selected disabled>CATEGORIES</option>
+                    </select>
+                </div>
+                <div class="search">
+                    <input type="text" id="product-name-input" placeholder="Name (empty gets all)">
+                    <span class="search-icon" onclick="findByName();">&#8981;</span>
+                </div>
+            </div>
+
+            <!-- paginator -->
+            <div class="paginator">
+                <button id="prev" onclick="showPreviousPage();"> << </button>
+                <span id="page_label">Page</span>
+                <button id="next" onclick="showNextPage();"> >> </button>
+            </div>
+
+            <!-- server result -->
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <!-- modal loading -->
+    <div class="modal-loading" id="modal-loading" style="display: none;">
+        <div class="loader"></div>
+    </div>
+
+    <!-- modal details -->
+    <div class="modal-details" id="modal-details">
+        <div class="details" id="product-details"></div>
+    </div>
+
+    <!-- modal shopping cart -->
+    <div class="modal-shopping-cart" id="modal-shopping-cart">
+        <div class="cart-details" id="cart-details">
+            <h2>Shopping Cart</h2>
+            
+            <div class="cart-items" id="cart-items"></div>
+            
+            <div class="total-pay" id="total-pay">
+                TOTAL TO PAY: $ 0
+            </div>
+            
+            <div class="cart-buttons">
+                <button onclick="alert('Go to pay!!!')">PAY</button>
+                <button onclick="clearShoppingCart();">CLEAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/left-menu.js"></script>
+</body>
+</html>

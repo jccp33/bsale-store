@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="img/icon_transp.png"/>
+    <title>Bsale Store</title>
+</head>
+<body>
+    <!-- main container -->
+    <div class="main-container">
+        <!-- top bar -->
+        <div class="top-bar">
+            <span title="Menu" onclick="showLeftMenu();">&#9776;</span>
+            <div id="left-menu" class="left-menu">
+                <div class="div-menu" id="div-menu">
+                    <a href="index.html">Store</a>
+                    <a href="doc.html">Documentation</a>
+                </div>
+            </div>
+            <h2>Project Documentation</h2>
+            <span title="Sub Menu" style="padding-top: 8px;">&#8285;</span>
+        </div>
+
+        <!-- container -->
+        <div class="container">
+            <!-- doc container -->
+            <div class="doc-container">
+                <h2>Objective</h2>
+                <div>
+                    Detail the development of this project, publish the endpoints and the methods and data necessary to access them.
+                </div>
+                <h2>BackEnd</h2>
+                <div>
+                    The BackEnd was developed entirely with PHP without any framework or library. Being a "test" project, some aspects were not considered for this development, such as endpoint authentication operations.
+                </div>
+                <h3>Endpoints</h3>
+                <div>
+                    <span>All Categories</span> <br>
+                    <span>Type: </span> GET <br>
+                    <span>Url:</span> http://bsale-store-x.x10.mx/bsale-back/all_categories.php <br>
+                    <span>Data Input:</span>  <br>
+                    <span>Output:</span> Get all categories in a JSON array to be decoded. <br>
+                    <span>Output Example:</span> <br>
+                    <pre id="all-categories" style="background-color: #ccc; overflow-x: auto;"></pre>
+                </div>
+                <div>
+                    <span>All Products</span> <br>
+                    <span>Type: </span> GET <br>
+                    <span>Url:</span> http://bsale-store-x.x10.mx/bsale-back/all_products.php <br>
+                    <span>Data Input:</span>  <br>
+                    <span>Output:</span> Get all products in a JSON array to be decoded. <br>
+                    <span>Output Example:</span> <br>
+                    <pre id="all-products" style="background-color: #ccc; overflow-x: auto;"></pre>
+                </div>
+                <div>
+                    <span>Products By Category</span> <br>
+                    <span>Type: </span> GET <br>
+                    <span>Url:</span> http://bsale-store-x.x10.mx/bsale-back/select_by_category.php <br>
+                    <span>Data Input:</span> (int) category <br>
+                    <span>Output:</span> Get all products filtered by category in JSON array. <br>
+                    <span>Output Example:</span> <br>
+                    <pre id="products-category" style="background-color: #ccc; overflow-x: auto;"></pre>
+                </div>
+                <div>
+                    <span>Products By Name</span> <br>
+                    <span>Type: </span> POST <br>
+                    <span>Url:</span> http://bsale-store-x.x10.mx/bsale-back/products_by_name.php <br>
+                    <span>Data Input:</span> (string) name <br>
+                    <span>Output:</span> Get all products filtered by name in JSON array. <br>
+                    <span>Output Example:</span> <br>
+                    <pre id="products-name" style="background-color: #ccc; overflow-x: auto;"></pre>
+                </div>
+                <h2>FrontEnd</h2>
+                <div>
+                    The FrontEnd was developed entirely with HTML, CSS and JavaScript without any framework or library. Requests to the server are handled asynchronously with an AJAX function.
+                </div>
+                <h3>Endpoints</h3>
+                <div>
+                    <span>Bsale Store</span> <br>
+                    <span>Url:</span> http://bsale-store-x.x10.mx <br>
+                    <span>Output:</span> Bsale e-shop page. <br>
+                    <span>Note:</span> From the top left menu you can access the documentation. <br>
+                </div>
+                <div>
+                    <span>Project Documentation</span> <br>
+                    <span>Url:</span> http://bsale-store-x.x10.mx/doc.html <br>
+                    <span>Output:</span> Documentation page. <br>
+                    <span>Note:</span> From the top left menu you can access the store. <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- scripts -->
+    <script src="js/left-menu.js"></script>
+    <script>
+        let data = [{"id": 1,"name": "bebida energetica"},{"id": 2,"name": "pisco"}];
+        document.getElementById("all-categories").innerHTML = JSON.stringify(data, null, 4);
+        data = [{"id": 5,"name": "ENERGETICA MR BIG","url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/misterbig3308256.jpg","price": 1490,"discount": 20,"category": 1},{"id": 6,"name": "ENERGETICA RED BULL","url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/redbull8381.jpg","price": 1490,"discount": 0,"category": 1},{"id": 7,"name": "ENERGETICA SCORE","url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/logo7698.png","price": 1290,"discount": 0,"category": 1}];
+        document.getElementById("all-products").innerHTML = JSON.stringify(data, null, 4);
+        data = [{"id": 98,"name": "Cerveza Escudo Normal LATA 350CC","url_image": "","price": 600,"discount": 0,"category": 6},{"id": 99,"name": "Cerveza Escudo Sin Filtrar LATA 350CC","url_image": "","price": 800,"discount": 0,"category": 6}];
+        document.getElementById("products-category").innerHTML = JSON.stringify(data, null, 4);
+        data = [{"id": 37,"name": "COCA COLA ZERO DESECHABLE","url_image": "https://dojiw2m9tvv09.cloudfront.net/11132/product/cocazero9766.jpg","price": 1490,"discount": 0,"category": 4},{"id": 57,"name": "COCA COLA NORMAL DESECHABLE 1500cc","url_image": "","price": 1500,"discount": 0,"category": 4},{"id": 58,"name": "COCA COLA LIGHT DESECHABLE","url_image": "","price": 1500,"discount": 0,"category": 4}];
+        document.getElementById("products-name").innerHTML = JSON.stringify(data, null, 4);
+    </script>
+</body>
+</html>
